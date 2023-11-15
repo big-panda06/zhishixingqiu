@@ -4,6 +4,7 @@ from wxcloudrun.response import make_succ_empty_response, make_succ_response, ma
 import requests
 import json
 
+
 @app.route('/')
 def index():
     """
@@ -12,10 +13,11 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/api/llm', methods=['POST'])
+@app.route('/api/llm', methods=['GET'])
 def llm():
     content = request.values.get('content')
     return make_succ_response({"result": get_llm(content)})
+
 
 def get_llm(content):
     url = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/eb-instant?access_token=24.7a649d915fe0b59c319416b9d55b65e8.2592000.1702655299.282335-42777740"
@@ -27,5 +29,6 @@ def get_llm(content):
 
     response = requests.request("POST", url, headers=headers, data=payload)
 
-    return response.json()['result']
+    print(response.json())
 
+    return response.json()['result']
