@@ -1,8 +1,5 @@
-from datetime import datetime
 from flask import render_template, request
 from run import app
-from wxcloudrun.dao import delete_counterbyid, query_counterbyid, insert_counter, update_counterbyid
-from wxcloudrun.model import Counters
 from wxcloudrun.response import make_succ_empty_response, make_succ_response, make_err_response
 import requests
 import json
@@ -17,8 +14,7 @@ def index():
 
 @app.route('/api/llm', methods=['POST'])
 def llm():
-    params = request.get_json()
-    content = params['content']
+    content = request.values.get('content')
     return make_succ_response({"result": get_llm(content)})
 
 
