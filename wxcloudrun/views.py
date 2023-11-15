@@ -7,7 +7,6 @@ from wxcloudrun.response import make_succ_empty_response, make_succ_response, ma
 import requests
 import json
 
-
 @app.route('/')
 def index():
     """
@@ -40,3 +39,4 @@ def get_llm(content):
     response = requests.request("POST", url, headers=headers, data=payload)
 
     return response.json()['result']
+
