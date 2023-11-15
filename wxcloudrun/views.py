@@ -28,6 +28,7 @@ def llm():
 
     return make_succ_response({"result": get_llm(content)})
 
+
 def get_llm(content):
     url = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/eb-instant?access_token=24.7a649d915fe0b59c319416b9d55b65e8.2592000.1702655299.282335-42777740"
 
