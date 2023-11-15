@@ -26,7 +26,7 @@ def llm():
 
     content = params['content']
 
-    return get_llm(content)
+    return make_succ_response({"result": get_llm(content)})
 
 
 def get_llm(content):
@@ -40,4 +40,3 @@ def get_llm(content):
     response = requests.request("POST", url, headers=headers, data=payload)
 
     return response.json()['result']
-
