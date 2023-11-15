@@ -17,14 +17,7 @@ def index():
 
 @app.route('/api/llm', methods=['POST'])
 def llm():
-    params = request.get_json()
-
-    # 检查action参数
-    if 'content' not in params:
-        return make_err_response('缺少content参数')
-
-    content = params['content']
-
+    content = request.values.get('content')
     return make_succ_response({"result": get_llm(content)})
 
 
