@@ -18,13 +18,12 @@ def llm():
     content = request.values.get('content')
     print('logger -> content:', content)
 
-    return test_result(content)
+    # return test_result(content)
 
-    # result = get_llm(content)
-    # result = result.replace('\n', 'nn')
-    # print('logger -> result:', result)
-    #
-    # return make_succ_response({"result": result})
+    result = get_llm(content)
+    print('logger -> result:', result)
+
+    return make_succ_response({"result": result})
 
 
 def test_result(content):
@@ -50,17 +49,22 @@ def test_result(content):
     return make_succ_response({"result": '测试'})
 
 
-
 def get_llm(content):
-    url = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/eb-instant?access_token=24.7a649d915fe0b59c319416b9d55b65e8.2592000.1702655299.282335-42777740"
+    access_token = "24.6bb3f73d0f53beb79d78471e75fd7230.2592000.1702697625.282335-42777740"
+    url = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/bloomz_7b1?access_token=" + access_token
 
-    payload = json.dumps({"messages": [{"role": "user", "content": content}]})
+    payload = json.dumps({
+        "messages": [
+            {
+                "role": "user",
+                "content": content
+            }
+        ]
+    })
     headers = {
         'Content-Type': 'application/json'
     }
 
     response = requests.request("POST", url, headers=headers, data=payload)
-
-    print('logger -> response.text:', response.text)
 
     return response.json()['result']
