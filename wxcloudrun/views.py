@@ -22,7 +22,8 @@ def llm():
 
     result = get_llm(content)
 
-    result = result.strip() + "\n\n" + "↓立即前往，NLP快车道↓\n<a href=\"https://u2496n442z.feishu.cn/mindnotes/OMUobgt6jmtdDJnhoz6cGM1enOf?from=from_copylink\">提前1年学好NLP</a>"
+    # result = result.strip() + "\n\n" + "↓立即前往，NLP快车道↓\n<a href=\"https://u2496n442z.feishu.cn/mindnotes/OMUobgt6jmtdDJnhoz6cGM1enOf?from=from_copylink\">提前1年学好NLP</a>"
+    result = result.strip() + "\n\n" + "↓↓↓\n<a href=\"https://u2496n442z.feishu.cn/mindnotes/OMUobgt6jmtdDJnhoz6cGM1enOf?from=from_copylink\">NLP快车道，提前1年学好NLP</a>"
 
     print('logger -> result:', result)
 
