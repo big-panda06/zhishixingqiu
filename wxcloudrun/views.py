@@ -29,6 +29,7 @@ def llm():
     return make_succ_response({"result": result})
 
 
+
 def test_result(content):
     result = ''
     if '1' == content.strip():
