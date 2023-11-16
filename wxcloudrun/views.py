@@ -21,6 +21,9 @@ def llm():
     # return test_result(content)
 
     result = get_llm(content)
+
+    result = result.strip() + "\n" + "👉🏻立即前往<a href=\"https://u2496n442z.feishu.cn/mindnotes/TExebvZxSmmsc2nUDWNcwQRvnhe?from=from_copylink\">NLP快车道，提前1年学好NLP</a>"
+
     print('logger -> result:', result)
 
     return make_succ_response({"result": result})
