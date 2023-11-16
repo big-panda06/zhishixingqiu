@@ -15,13 +15,12 @@ def index():
 
 @app.route('/api/llm', methods=['GET'])
 def llm():
-    app.logger.info('调用大模型开始')
-
     content = request.values.get('content')
-    app.logger.info('logger -> content:', content)
+    print('logger -> content:', content)
 
     result = get_llm(content)
-    app.logger.info('logger -> result:', result)
+    result = result.replace('\n', 'nn')
+    print('logger -> result:', result)
 
     return make_succ_response({"result": result})
 
@@ -36,6 +35,6 @@ def get_llm(content):
 
     response = requests.request("POST", url, headers=headers, data=payload)
 
-    app.logger.info('logger -> response.text:', response.text)
+    print('logger -> response.text:', response.text)
 
     return response.json()['result']
