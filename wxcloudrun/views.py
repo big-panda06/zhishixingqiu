@@ -18,6 +18,7 @@ def llm():
     content = request.values.get('content')
     print('logger -> content:', content)
 
+
     return test_result(content)
 
     # result = get_llm(content)
