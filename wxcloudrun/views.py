@@ -51,6 +51,7 @@ def test_result(content):
 
     return make_succ_response({"result": '测试'})
 
+
 def get_llm(content):
     access_token = "24.6bb3f73d0f53beb79d78471e75fd7230.2592000.1702697625.282335-42777740"
     url = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/bloomz_7b1?access_token=" + access_token
