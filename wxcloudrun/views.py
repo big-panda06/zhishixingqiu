@@ -16,7 +16,12 @@ def index():
 @app.route('/api/llm', methods=['GET'])
 def llm():
     content = request.values.get('content')
-    return make_succ_response({"result": get_llm(content)})
+    print('logger -> content:', content)
+
+    result = get_llm(content)
+    print('logger -> result:', result)
+
+    return make_succ_response({"result": result})
 
 
 def get_llm(content):
@@ -29,6 +34,6 @@ def get_llm(content):
 
     response = requests.request("POST", url, headers=headers, data=payload)
 
-    print(response.json())
+    print('logger -> response.text:', response.text)
 
     return response.json()['result']
