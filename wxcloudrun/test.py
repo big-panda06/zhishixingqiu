@@ -11,7 +11,6 @@ def main():
     access_token = "24.d6620d6a5f2ee3c49385d07b43669376.2592000.1705502699.282335-42777740"
     content = "算法工程师没有算法能力怎么办？"
 
-
     url = "https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/bloomz_7b1?access_token=" + access_token
 
     payload = json.dumps({
