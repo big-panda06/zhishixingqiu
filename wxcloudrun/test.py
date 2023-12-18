@@ -30,6 +30,7 @@ def main():
     print(response.json()['result'])
 
 
+
 def get_access_token():
     """
     使用 AK，SK 生成鉴权签名（Access Token）
